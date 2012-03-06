@@ -1,0 +1,29 @@
+<h1>Tenants Index </h1>
+<div id="main-column">
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>User ID </th>
+				<th>Subdomain</th>
+				<th>DB Password</th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @tenants.each do |tenant| %>
+			<tr>
+	    		<td> <h3> <%= link_to tenant.userid, root_url(subdomain: tenant.subdomain) %></h3></td>
+				<td><%= tenant.subdomain%></td>
+				<td><%= tenant.db_password %> </td>
+				<td> <%= link_to "Subjects Index", subjects_url(subdomain: tenant.subdomain) %> </td>
+				<td>
+			      <%= link_to 'Destroy', tenant, :confirm => 'Are you sure?', :method => :delete, :subdomain => tenant.subdomain %> 
+				</td>
+				<td>
+					<%= link_to "New Subject", new_subject_url(subdomain: tenant.subdomain) %>
+				</td>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+	<%= link_to "New Tenant", new_tenant_path %>
+</div>

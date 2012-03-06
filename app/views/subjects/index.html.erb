@@ -1,0 +1,23 @@
+<h3> Tenant Domain: <%= @current_tenant.subdomain%> </h3>
+
+<h2> Subject Index </h2>
+<div id="main-column">
+	<table class='index_table_z' >
+	    <thead>	
+			<tr>
+				<th>Name </th>
+			</tr>
+		</thead>
+	    <tbody>
+		<% @subjects.each do |subject| %>
+			<tr>
+	    		<td> <h3> <%= link_to subject.name, subject_path(subject) %></h3></td>
+				<td>
+			      <%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %> 
+				</td>
+			</tr>
+		<% end %>
+	    </tbody>	
+	</table>		
+	<%= link_to "New Subject", new_subject_path %>
+</div>

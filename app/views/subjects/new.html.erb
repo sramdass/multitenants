@@ -1,0 +1,22 @@
+<h3> Tenant Domain: <%= @current_tenant.subdomain%> </h3>
+<div id="main-column">	
+	<p class='heading'> New Subject </p>
+	<%= form_for @subject do |f| %>
+		<%= render 'shared/error_messages', :target => @subject %>	  	
+		<table>
+		    <tbody>	
+				<tr>
+					<td> 
+						<strong><%= f.label :name, 'Name' %> </strong><br>
+					 	<%= f.text_field :name %> 
+					 </td>
+				</tr>
+				<tr>
+					<td colspan='2' class='button'> <br><%= submit_tag "Create Subject" %> </td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+</div>	
+<%= link_to "Subjects Index", subjects_path  %>
+

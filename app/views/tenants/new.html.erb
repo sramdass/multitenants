@@ -1,0 +1,32 @@
+<div id="main-column">	
+	<p class='heading'> Sign Up </p>
+	<%= form_for @tenant do |f| %>
+		<%= render 'shared/error_messages', :target => @tenant %>	  	
+		<table>
+		    <tbody>	
+				<tr>
+					<td> 
+						<strong><%= f.label :userid, 'User ID' %> </strong><br>
+					 	<%= f.text_field :userid %> 
+					 </td>
+				</tr>
+				<tr>
+					<td> 
+						<strong><%= f.label :subdomain %></strong> <br>
+						<%= f.text_field :subdomain %>
+					</td>			 	
+				</tr>
+				<tr>
+					<td> 
+						<strong><%= f.label :db_password %></strong><br />
+						<%= f.text_field :db_password %>
+					</td>
+				</tr>			
+				<tr>
+					<td colspan='2' class='button'> <br><%= submit_tag "Sign Up" %> </td>
+				</tr>
+			</tbody>
+		</table>
+	<% end %>
+</div>	
+
